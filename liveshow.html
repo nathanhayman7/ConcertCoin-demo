@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConcertCoin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" 
+        href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" 
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" 
+        crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/index.html" id="navbar__logo">ConcertCoin</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="#home" class="navbar__links" id="home-page">Home</a>
+                </li>
+                <li class="navbar__item">
+                  <a href="#my-shows" class="navbar__links" id="my-shows-page">My Shows</a>
+              </li>
+              <li class="navbar__item">
+                  <a href="#myaccount" class="navbar__links" id="myaccount-page">My Wallet</a>
+              </li>
+            </ul>
+        </div>  
+      </nav>
+    <div class="live">
+        <div class="live__container">
+            <div class="live__video--container">
+                <div class="video__content">
+                  <script>
+                    (function(d, s) {
+                      var js = d.createElement(s),
+                        sc = d.getElementsByTagName(s)[0];
+                      js.src = "https://paywall.unlock-protocol.com/static/unlock.latest.min.js";
+                      sc.parentNode.insertBefore(js, sc);
+                    }(document, "script"));
+                  </script>
+                <script>
+                    var unlockProtocolConfig = {
+                        "locks": {
+                          "0x7619237D6833a2Eba3a9cd12A28F29e96b280a33": {
+                            "name": "Unlock Members",
+                            network: 4
+                          }
+                          
+                        },
+                        "icon": "https://unlock-protocol.com/static/images/svg/unlock-word-mark.svg",
+                        "callToAction":  {
+                          "default": "Please unlock this demo!"
+                        }
+                      }
+                  </script>
+                  <button  class="main__btn" onclick="window.unlockProtocol.loadCheckoutModal()">Purchase ticket</button>
+                  <h1>Unlock Show</h1>
+          <p class="unlock-content locked">Unlock Demo is currently locked 🔒 </p>
+          <p class="unlock-content unlocked">Unlock Demo is currently unlocked 🎉</p>
+          <p class="unlock-content locked" onclick="window.unlockProtocol && window.unlockProtocol.loadCheckoutModal()"><button class="button">
+          Unlock!
+          </button></p>
+                    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+                    <video id="my-player" controls style="width: 100%; max-width: 960px" />
+                <script>
+                    const videoEl = document.querySelector("#my-player");
+                    const src = "https://cdn.livepeer.com/hls/5735wkk958yqnlbs/index.m3u8";
+                        if (videoEl.canPlayType("application/vnd.apple.mpegurl")) {
+                    // Some browers (safari and ie edge) support HLS natively
+                         videoEl.src = src;
+                        } else if (Hls.isSupported()) {
+                    const hls = new Hls();
+                hls.loadSource(src);
+                hls.attachMedia(videoEl);
+                } else {
+       console.error("This is a legacy browser that doesn't support MSE");
+     }
+    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
